@@ -1,0 +1,9 @@
+{% if notifications is defined and notifications is not empty %}
+<div class="notifications">
+    {% for type, messages in notifications %}
+        {% for message in messages %}
+            <div class="message {{ type }}">{{ message }}</div>
+        {% endfor %}
+    {% endfor %}
+</div>
+{% endif %}

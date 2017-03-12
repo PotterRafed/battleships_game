@@ -1,0 +1,10 @@
+parameters:
+
+  #Board height and width settings
+  board_height: 10
+  board_width: 10
+
+  #Ships to be placed in the board
+  default_ships:
+    - 3
+    - 1

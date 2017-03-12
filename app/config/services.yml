@@ -1,0 +1,51 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+
+services:
+    game:
+        class: Battleships\Core\Game
+        arguments: ['@game.factory.game_board_factory', '@game.input.convert_input_handler', '@game_state_manager', '@game_notification_manager']
+
+    board_dimentions:
+        class: Battleships\Objects\Point
+        arguments: ['%board_width%', '%board_height%']
+
+    #Input Handler
+    game.input.convert_input_to_point:
+        class: Battleships\Input\ConvertInputToPoint
+        arguments: ['@board_dimentions']
+
+    game.input.convert_input_handler:
+        class: Battleships\Input\InputHandler
+        arguments: ['@game.input.convert_input_to_point']
+
+    #Board Services
+    game.objects.play_board:
+        class: Battleships\Objects\PlayBoard
+        arguments: ['@board_dimentions']
+
+    game.battleships.game_board:
+        class: Battleships\Core\GameBoard
+        arguments: ['@game.objects.play_board']
+
+    game.factory.game_board_factory:
+        class: Battleships\Factory\GameBoardFactory
+        arguments: ['@game.battleships.game_board', '%default_ships%']
+
+    #Session Manager
+    game_state_manager:
+        class: Battleships\StateManagement\GameStateManager
+        arguments: ['@session_state_manager']
+
+    session_state_manager:
+        class: Battleships\StateManagement\Adapters\SessionStateManager
+        arguments: ['@session']
+
+    #Notification Manager
+    game_notification_manager:
+        class: Battleships\NotificationManagement\GameNotificationManager
+        arguments: ['@session_notification_manager']
+
+    session_notification_manager:
+        class: Battleships\NotificationManagement\Adapters\SessionNotificationManager
+        arguments: ['@session']

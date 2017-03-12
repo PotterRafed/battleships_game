@@ -1,0 +1,48 @@
+.game {
+    margin-left: 20px;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.game .input {
+    clear: both;
+    margin-top: 35px;
+}
+
+.game .notifications
+{
+    margin-top: 35px;
+    margin-bottom: -15px;
+    clear: both;
+}
+.game .notifications .message {
+    margin-bottom: 5px;
+}
+.game .notifications .error
+{
+    color: red;
+}
+
+.game .notifications .success
+{
+    color: green;
+}
+
+.game .board {
+    font-family: monospace;
+    font-size: 18px;
+}
+
+.game .board .board-row{
+    clear: both;
+}
+
+.game .board .bold{
+    font-weight: bold;
+}
+
+.game .board_element {
+    display: inline;
+    float: left;
+    width: 25px;
+    white-space: pre;
+}

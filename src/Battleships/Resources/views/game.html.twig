@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Battleships game{% endblock %}</title>
+        {% block stylesheets %}
+            <link href="{{ asset('bundles/battleships/css/main.css') }}" rel="stylesheet" />
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {% block javscripts %}
+        {% endblock %}
+    </head>
+    <body>
+        <div class="game">
+            <h2> BATTLESHIPS </h2>
+            {%  include '@Battleships/board/board.html.twig' %}
+            {%  include '@Battleships/board/notifications.html.twig' %}
+            <div class="input">
+            {% if gameOver != true %}
+                {%  include '@Battleships/board/input.html.twig' %}
+            {% else %}
+                {%  include '@Battleships/board/newgame.html.twig' %}
+            {% endif %}
+            </div>
+        </div>
+        <script src="{{ asset('bundles/battleships/js/main.js') }}"></script>
+    </body>
+</html>

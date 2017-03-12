@@ -1,0 +1,23 @@
+<div class="board">
+    {% for row in board %}
+        {% if loop.first %}
+            {% set row_bold = "bold" %}
+        {% else %}
+            {% set row_bold = "" %}
+        {% endif %}
+
+        <div class="board-row {{ row_bold }}">
+
+        {% for point in row %}
+            {% if loop.first %}
+                {% set point_bold = "bold" %}
+            {% else %}
+                {% set point_bold = "" %}
+            {% endif %}
+
+            <div class="board_element {{ point_bold }}">{{ point }}</div>
+        {% endfor %}
+        </div>
+    {% endfor %}
+</div>
+

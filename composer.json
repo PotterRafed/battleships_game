@@ -1,0 +1,26 @@
+{
+    "name": "Battleships Game",
+    "description": "A Battleships game in PHP",
+    "version": "1.0",
+    "authors": [
+        {
+            "name": "Potter Rafed",
+            "email": "r.s.rafed@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": { "": "src/" },
+        "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
+    },
+    "autoload-dev": {
+        "psr-4": { "Tests\\": "tests/" }
+    },
+    "require": {
+        "php": ">=7.0.0",
+        "symfony/symfony": "3.1.*",
+        "sensio/framework-extra-bundle": "^3.0"
+    },
+    "require-dev": {
+        "symfony/phpunit-bridge": "^3.0"
+    }
+}
